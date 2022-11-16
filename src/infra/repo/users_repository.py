@@ -6,7 +6,7 @@ from src.domain.models import Users
 
 class UsersRepository:
     @classmethod
-    def insert_value(cls, name: str, password: str) -> Users:
+    def insert_user(cls, name: str, password: str) -> Users:
 
         with DBConnectionHandler() as db_connection:
             try:
@@ -41,6 +41,7 @@ class UsersRepository:
                 with DBConnectionHandler as db_connection:
                     data = db_connection.session.query(UsersModel).all()
                     result = [data]
+
 
             return result
 
