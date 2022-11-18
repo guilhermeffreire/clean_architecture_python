@@ -43,7 +43,6 @@ class UsersRepository(IUsersRepository):
                     data = db_connection.session.query(UsersModel).all()
                     result = [data]
 
-
             return result
 
         except:
