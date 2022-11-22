@@ -6,7 +6,7 @@ from src.domain.models.users import Users
 class FindUsers(ABC):
 
     @abstractmethod
-    def find_by_id(cls, user_id: int) -> Dict[bool, List[Users]]:
+    def find_by_id(self, user_id: int) -> Dict[bool, List[Users]]:
         raise Exception("Should implement method: find_by_id")
 
     @abstractmethod

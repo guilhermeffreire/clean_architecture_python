@@ -21,4 +21,4 @@ class Find(FindUsersInterface):
     def find_all_users(self) -> Dict[bool, List[Users]]:
         response = self.user_repository.select_user()
 
-        return {"Success": response, "Data": response}
+        return {"Success": True, "Data": response}
