@@ -2,14 +2,14 @@ from typing import Type
 from src.domain.use_cases import RegisterUser
 from src.presenters.helpers.http_models import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
+from src.main.interfaces import RoutesInterface
 
-
-class RegisterUserController:
+class RegisterUserController(RoutesInterface):
     def __init__(self, register_user_use_case: Type[RegisterUser]):
         self.register_user_use_case = register_user_use_case
 
 
-    def handle(self, http_request: Type[HttpRequest]) -> HttpResponse:
+    def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         response = None
 
         if http_request.body:

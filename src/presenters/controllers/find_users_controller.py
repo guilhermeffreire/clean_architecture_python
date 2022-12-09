@@ -2,13 +2,14 @@ from typing import Type
 from src.domain.use_cases import FindUsers
 from src.presenters.helpers.http_models import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
+from src.main.interfaces import RoutesInterface
 
-class FindUsersController:
+class FindUsersController(RoutesInterface):
     def __init__(self, find_users_use_case: Type[FindUsers]):
         self.find_users_use_case = find_users_use_case
 
 
-    def handle(self, http_request: Type[HttpRequest]) -> HttpResponse:
+    def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         response = None
 
         if http_request.query:

@@ -2,12 +2,13 @@ from src.domain.use_cases import RegisterPet
 from typing import Type
 from src.presenters.helpers.http_models import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
-class RegisterPetController:
+from src.main.interfaces import RoutesInterface
+class RegisterPetController(RoutesInterface):
 
     def __inti(self, register_pet_use_case: Type[RegisterPet]):
         self.register_pet_use_case = register_pet_use_case
 
-    def handle(self, http_request: Type[HttpRequest]) -> HttpResponse:
+    def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         response = None
 
         if http_request.body:

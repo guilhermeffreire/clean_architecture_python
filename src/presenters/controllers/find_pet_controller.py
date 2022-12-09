@@ -2,12 +2,13 @@ from typing import Type
 from src.domain.use_cases import FindPet
 from src.presenters.helpers import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
+from src.main.interfaces import RoutesInterface
 
-class FindPetController:
+class FindPetController(RoutesInterface):
     def __init(self, find_pet_use_case: Type[FindPet]):
         self.find_pet_use_case = find_pet_use_case
 
-    def handle(self, http_request: Type[HttpRequest]) -> HttpResponse:
+    def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         response = None
 
         if http_request.query:
