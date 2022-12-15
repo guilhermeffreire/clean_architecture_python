@@ -1,14 +1,16 @@
 from typing import Dict
 
-class HttpRequest:
 
+class HttpRequest:
     def __init(self, header: Dict = None, body: Dict = None, query: Dict = None):
         self.header = header
         self.body = body
         self.query = query
 
     def __repr__(self):
-        return f"HttpRequest (header={self.header}, body={self.body}, query={self.query})"
+        return (
+            f"HttpRequest (header={self.header}, body={self.body}, query={self.query})"
+        )
 
 
 class HttpResponse:
@@ -16,7 +18,5 @@ class HttpResponse:
         self.status_code = status_code
         self.body = body
 
-
     def __repr__(self):
         return f"HttpResponse (status_code={self.status_code}, body={self.body})"
-

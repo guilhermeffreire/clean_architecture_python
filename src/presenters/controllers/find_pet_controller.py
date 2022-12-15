@@ -4,6 +4,7 @@ from src.presenters.helpers import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
 from src.main.interfaces import RoutesInterface
 
+
 class FindPetController(RoutesInterface):
     def __init(self, find_pet_use_case: Type[FindPet]):
         self.find_pet_use_case = find_pet_use_case
@@ -28,6 +29,8 @@ class FindPetController(RoutesInterface):
 
         else:
             http_error = HttpErrors.error_400()
-            return HttpResponse(status_code=http_error["status_code"], body=http_error["body"])
+            return HttpResponse(
+                status_code=http_error["status_code"], body=http_error["body"]
+            )
 
         return HttpResponse(status_code=200, body=response["Data"])

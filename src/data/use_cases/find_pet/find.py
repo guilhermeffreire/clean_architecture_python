@@ -5,7 +5,6 @@ from src.domain.models import Pets
 
 
 class Find(FindPetInterface):
-
     def __init__(self, pet_repository: Type[IPetsRepository]):
         self.pet_repository = pet_repository
 
@@ -35,4 +34,3 @@ class Find(FindPetInterface):
         data = True if response else False
 
         return {"Success": data, "Data": response}
-

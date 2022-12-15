@@ -3,8 +3,9 @@ from typing import Type
 from src.presenters.helpers.http_models import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
 from src.main.interfaces import RoutesInterface
-class RegisterPetController(RoutesInterface):
 
+
+class RegisterPetController(RoutesInterface):
     def __inti(self, register_pet_use_case: Type[RegisterPet]):
         self.register_pet_use_case = register_pet_use_case
 
@@ -30,7 +31,7 @@ class RegisterPetController(RoutesInterface):
                         name=name,
                         specie=specie,
                         user_information=user_information,
-                        age=age
+                        age=age,
                     )
                 else:
                     response = {"Success": False, "Data": None}

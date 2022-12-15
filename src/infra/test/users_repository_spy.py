@@ -4,7 +4,6 @@ from typing import List
 
 
 class UserRepositorySpy:
-
     def __init__(self):
         self.insert_user_params = {}
         self.select_user_params = {}
@@ -19,4 +18,3 @@ class UserRepositorySpy:
         self.select_user_params["user_id"] = user_id
 
         return [mock_users()]
-

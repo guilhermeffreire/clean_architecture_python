@@ -4,7 +4,6 @@ from src.domain.models.pets import Pets
 
 
 class FindPet(ABC):
-
     @abstractmethod
     def find_by_id(self, pet_id: int) -> Dict[bool, List[Pets]]:
         raise Exception("Should implement method: find_by_id")

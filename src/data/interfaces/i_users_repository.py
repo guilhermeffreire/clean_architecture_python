@@ -13,4 +13,3 @@ class IUsersRepository(ABC):
     @abstractmethod
     def select_user(self, user_id: int = None) -> List[Users]:
         raise Exception("Method not implemented")
-

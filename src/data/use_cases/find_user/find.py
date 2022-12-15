@@ -5,7 +5,6 @@ from src.domain.models import Users
 
 
 class Find(FindUsersInterface):
-
     def __init__(self, user_repository: Type[IUsersRepository]):
         self.user_repository = user_repository
 

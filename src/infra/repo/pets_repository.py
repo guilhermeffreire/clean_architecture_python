@@ -15,11 +15,13 @@ class PetsRepository(IPetsRepository):
                 db_connection.session.add(new_pet)
                 db_connection.session.commit()
 
-                return Pets(id=new_pet.id,
-                            name=new_pet.name,
-                            specie=new_pet.specie.value,
-                            age=new_pet.age,
-                            user_id=new_pet.user_id)
+                return Pets(
+                    id=new_pet.id,
+                    name=new_pet.name,
+                    specie=new_pet.specie.value,
+                    age=new_pet.age,
+                    user_id=new_pet.user_id,
+                )
 
             except:
                 db_connection.session.rollback()
@@ -37,11 +39,19 @@ class PetsRepository(IPetsRepository):
 
             if pet_id and not user_id:
                 with DBConnectionHandler() as db_connection:
-                    data = db_connection.session.query(PetsModel).filter_by(id=pet_id).one()
+                    data = (
+                        db_connection.session.query(PetsModel)
+                        .filter_by(id=pet_id)
+                        .one()
+                    )
                     query_data = [data]
             elif not pet_id and user_id:
                 with DBConnectionHandler() as db_connection:
-                    data = db_connection.session.query(PetsModel).filter_by(user_id=user_id).all()
+                    data = (
+                        db_connection.session.query(PetsModel)
+                        .filter_by(user_id=user_id)
+                        .all()
+                    )
                     query_data = [data]
             else:
                 with DBConnectionHandler() as db_connection:

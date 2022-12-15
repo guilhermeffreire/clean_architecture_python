@@ -4,7 +4,6 @@ from typing import List
 
 
 class PetRepositorySpy:
-
     def __init__(self):
         self.insert_pet_params = {}
         self.select_pet_params = {}

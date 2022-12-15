@@ -5,7 +5,6 @@ faker = Faker()
 
 
 def mock_users() -> Users:
-    return Users(id=faker.random_number(digits=5),
-                 name=faker.name(),
-                 password=faker.name()
-                 )
+    return Users(
+        id=faker.random_number(digits=5), name=faker.name(), password=faker.name()
+    )

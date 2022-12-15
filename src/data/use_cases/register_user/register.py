@@ -5,7 +5,6 @@ from src.domain.models import Users
 
 
 class RegisterUser(RegisterUserInterface):
-
     def __init__(self, user_repository: Type[UsersRepository]):
         self.user_repository = user_repository
 
@@ -17,4 +16,3 @@ class RegisterUser(RegisterUserInterface):
             response = self.user_repository.insert_user(name=name, password=password)
 
         return {"Success": validate_entry, "Data": response}
-

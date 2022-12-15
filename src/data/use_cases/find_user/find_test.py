@@ -26,7 +26,6 @@ def test_find_all_users():
 
     response = find_users.find_all_users()
 
-
     # Testing outputs
     assert response["Success"] is True
     assert response["Data"]

@@ -4,10 +4,10 @@ from src.presenters.helpers.http_models import HttpRequest, HttpResponse
 from src.presenters.errors import HttpErrors
 from src.main.interfaces import RoutesInterface
 
+
 class FindUsersController(RoutesInterface):
     def __init__(self, find_users_use_case: Type[FindUsers]):
         self.find_users_use_case = find_users_use_case
-
 
     def route(self, http_request: Type[HttpRequest]) -> HttpResponse:
         response = None
@@ -31,8 +31,6 @@ class FindUsersController(RoutesInterface):
 
             return HttpResponse(status_code=200, body=response["Data"])
 
-        http_error=HttpErrors.error_400()
+        http_error = HttpErrors.error_400()
 
         return HttpResponse(status_code=http_error, body=http_error["body"])
-
-

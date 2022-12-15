@@ -10,18 +10,24 @@ class RegisterPet(RegisterPetInterface):
         self.pet_repository = pet_repository
         self.find_user = find_user
 
-    def registry(self, name: str, specie: str, user_information: Dict[int, str], age: int = None) -> Dict[bool, Pets]:
+    def registry(
+        self, name: str, specie: str, user_information: Dict[int, str], age: int = None
+    ) -> Dict[bool, Pets]:
         response = None
         validate_entry = isinstance(name, str) and isinstance(specie, str)
         user = self.__find_user_information(user_information)
         checker = validate_entry and user["Success"]
 
         if checker:
-            response = self.pet_repository.insert_pet(name, specie, age, user_information["user_id"])
+            response = self.pet_repository.insert_pet(
+                name, specie, age, user_information["user_id"]
+            )
 
         return {"Success": checker, "Data": response}
 
-    def __find_user_information(self, user_information: Dict[int, str]) -> Dict[bool, List[Users]]:
+    def __find_user_information(
+        self, user_information: Dict[int, str]
+    ) -> Dict[bool, List[Users]]:
         user_founded = None
         user_params = user_information.keys()
 

@@ -43,5 +43,3 @@ def test_find_all_pets():
 
     assert response["Success"] is True
     assert response["Data"]
-
-
