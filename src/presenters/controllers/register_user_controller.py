@@ -19,7 +19,7 @@ class RegisterUserController(RoutesInterface):
                 name = http_request.body["name"]
                 password = http_request.body["password"]
 
-                response = self.register_user_use_case(name=name, password=password)
+                response = self.register_user_use_case.register(name=name, password=password)
             else:
                 response = {"Success": False, "Data": None}
 
